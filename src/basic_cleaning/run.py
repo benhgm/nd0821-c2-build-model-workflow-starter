@@ -47,6 +47,9 @@ def go(args):
     logging.info(
         "Saving file to csv"
     )
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
+    
     # Save results to csv file
     df.to_csv("clean_sample.csv", index=False)
 
